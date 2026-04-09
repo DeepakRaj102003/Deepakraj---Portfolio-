@@ -194,9 +194,36 @@ h2{
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero h1{font-size:50px;}
-  nav{padding:20px;}
-  section{padding:50px 20px;}
+
+  nav{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:15px 20px;
+    gap:10px;
+  }
+
+  .nav-links{
+    display:none; /* hide links for clean look */
+  }
+
+  .resume{
+    align-self:flex-start; /* moves below DR */
+    padding:8px 16px;
+    font-size:12px;
+    height:auto;
+  }
+
+  .hero{
+    padding:100px 20px 30px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  section{
+    padding:50px 20px;
+  }
 }
 
 </style>
@@ -246,7 +273,7 @@ h2{
     and deliver actionable insights that support business decisions.
     <br><br>
     I’ve worked on projects like sales analysis, customer behavior analysis,
-    Churn prediction, Poultry Disease Detection System and machine learning solutions — turning raw data into meaningful outcomes.
+    churn prediction, Poultry Disease Detection System and machine learning solutions — turning raw data into meaningful outcomes.
   </p>
 </section>
 
@@ -308,7 +335,7 @@ h2{
 </div>
 
 <div class="project">
-<img src="image/project 5.jpg">
+<img src="image/">
 <div class="project-content">
 <h3>Behavior Analysis</h3>
 <p>Python + SQL + Power BI</p>
