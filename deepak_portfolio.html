@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Deepak Raj - Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#070811;
+  --card:#11121a;
+  --accent:#5b6fff;
+  --text:#e8e8f0;
+  --muted:#8a8aa0;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:radial-gradient(circle at 20% 30%,#1a1f55,transparent 40%), #070811;
+  color:var(--text);
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+  background:#070811;
+}
+
+.nav-links{display:flex;gap:30px;}
+.nav-links a{color:var(--muted);text-decoration:none;}
+.nav-links a:hover{color:white;}
+
+.resume{
+  background:var(--accent);
+  padding:15px 25px;
+  height: 55px;
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
+}
+
+/* HERO */
+.hero{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  padding:120px 60px 40px;
+}
+
+.hero h1{
+  font-size:90px;
+  font-family:'Syne';
+}
+
+.hero span{
+  background:linear-gradient(90deg,#6f7cff,#ff7aa2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+  margin-top:20px;
+  max-width:500px;
+}
+
+.tags{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.tag{
+  border:1px solid #2a2b3c;
+  padding:6px 12px;
+  border-radius:8px;
+  font-size:13px;
+}
+
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+}
+
+.btn{
+  padding:12px 25px;
+  border-radius:10px;
+  text-decoration:none;
+}
+
+.primary{background:var(--accent);color:white;}
+.secondary{border:1px solid #2a2b3c;color:white;}
+
+/* SECTIONS */
+
+section{
+  
+  padding:60px 60px;
+}
+
+#about{
+  padding-top:40px;
+}
+
+h2{
+  font-family:'Syne';
+  font-size:40px;
+  margin-bottom:30px;
+}
+
+/* SKILLS */
+.skills{
+  
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+  padding:25px;
+  border-radius:15px;
+  border:1px solid #1f2130;
+}
+
+/* PROJECTS */
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+@media(max-width:900px){
+  .projects{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:600px){
+  .projects{grid-template-columns:1fr;}
+}
+
+.project{
+  background:var(--card);
+  border-radius:15px;
+  overflow:hidden;
+  border:1px solid #1f2130;
+  transition:0.3s;
+}
+
+.project:hover{
+  transform:translateY(-5px);
+  border-color:#5b6fff;
+}
+
+.project img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.project-content{padding:20px;}
+
+.project p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.github-link{
+  background:var(--card);
+  display:inline-block;
+  padding:5px;
+  border-radius:15px;
+  margin-top:10px;
+  font-size:13px;
+  color:#8a8aa0;
+  text-decoration:none;
+  border:1px solid #41424f;
+}
+
+.github-link:hover{color:#5b6fff;}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero h1{font-size:50px;}
+  nav{padding:20px;}
+  section{padding:50px 20px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>DR</h2>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+  </div>
+  <a href="Deepakraj_Resume.pdf" class="resume">Resume</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>Deepak <br><span>Raj</span></h1>
+    <p>AI & Data Science graduate — Turning a raw data into meaningful  Insights.</p>
+
+    <div class="tags">
+      <div class="tag">SQL</div>
+      <div class="tag">Python</div>
+      <div class="tag">ML</div>
+      <div class="tag">Data Analysis</div>
+      <div class="tag">Visualization</div>
+      
+      
+    </div>
+
+    <div class="buttons">
+      <a href="#projects" class="btn primary">View Work</a>
+      <a href="#contact" class="btn secondary">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <p style="max-width:700px;color:var(--muted);line-height:1.8;">
+    I’m an AI & Data Science graduate focused on solving real-world problems using data.
+    I specialize in SQL, Python, and Power BI to analyze datasets, uncover patterns,
+    and deliver actionable insights that support business decisions.
+    <br><br>
+    I’ve worked on projects like sales analysis, customer behavior analysis,
+    churn prediction, Poultry Disease Detection System and machine learning solutions — turning raw data into meaningful outcomes.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="card">Python</div>
+     <div class="card">SQL</div>
+    <div class="card">Machine Learning</div>
+     <div class="card">Excel</div>
+    <div class="card">Power BI</div>
+    <div class="card">Libraries</div>
+    <div class="card">Data Handling</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<img src="image/project 1.jpg">
+<div class="project-content">
+<h3>ShipX Sales</h3>
+<p>Sales trend analysis</p>
+<a href="https://github.com/DeepakRaj102003/ShipX_Retail-Sales-Outlet-Performance-Analysis.git" target="_blank" class="github-link">GitHub ↗</a>
+</div>
+</div>
+
+<div class="project">
+<img src="image/project 2.jpg">
+<div class="project-content">
+<h3>Poultry Detection</h3>
+<p>Disease and heat Detection System</p>
+<a href="https://github.com/DeepakRaj102003/Real-Time-Disease-prediction-in-poultry-farms.git" target="_blank" class="github-link">GitHub ↗</a>
+</div>
+</div>
+
+<div class="project">
+<img src="image/project 3.jpg">
+<div class="project-content">
+<h3>Skincare</h3>
+<p>Recommendation system</p>
+<a href=https://github.com/DeepakRaj102003/Skincare_recommendation.git target="_blank" class="github-link">GitHub ↗</a>
+</div>
+</div>
+
+
+<div class="project">
+<img src="image/project 4.jpg">
+<div class="project-content">
+<h3>Churn Prediction</h3>
+<p>ML model</p>
+<a href="https://github.com/DeepakRaj102003/Customer_Churn_Prediction.git" target="_blank" class="github-link">GitHub ↗</a>
+</div>
+</div>
+
+<div class="project">
+<img src="image/project 5.jpg">
+<div class="project-content">
+<h3>Behavior Analysis</h3>
+<p>Python + SQL + Power BI</p>
+<a href="https://github.com/DeepakRaj102003/Customer_Behavior_Analysis---SQL-Python-PowerBi.git" target="_blank" class="github-link">GitHub ↗</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact</h2>
+<p style="color:var(--muted); font-size:16px;">
+  <a href="mailto:deepakraj@gmail.com" style="color:#5b6fff; text-decoration:none;">
+    deepakk10.2003@gmail.com
+  </a>
+</p>
+<br>
+<p>
+  <a href="tel:+91 6369830428" style="color:#5b6fff;" > +91 6369830428</a>
+</p>
+</section>
+
+</body>
+</html>
