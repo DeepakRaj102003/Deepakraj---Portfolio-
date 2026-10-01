@@ -3,362 +3,432 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Deepak Raj - Portfolio</title>
-
+<title>Deepak Raj | Data Analyst & AI/ML</title>
+<meta name="description" content="Portfolio of Deepak Raj, AI & Data Science graduate skilled in SQL, Python, Power BI and Machine Learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:#070811;
   --card:#11121a;
+  --line:#23253a;
   --accent:#5b6fff;
+  --pink:#ff7aa2;
   --text:#e8e8f0;
-  --muted:#8a8aa0;
+  --muted:#9a9ab3;
 }
-
 *{margin:0;padding:0;box-sizing:border-box;}
-
+html{scroll-behavior:smooth;scroll-padding-top:90px;}
 body{
-  font-family:'DM Sans',sans-serif;
-  background:radial-gradient(circle at 20% 30%,#1a1f55,transparent 40%), #070811;
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:radial-gradient(circle at 20% 20%,#1a1f55,transparent 40%),var(--bg);
+  background-attachment:fixed;
   color:var(--text);
+  line-height:1.6;
 }
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
 
 /* NAV */
 nav{
-  position:fixed;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  padding:20px 60px;
-  background:#070811;
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(7,8,17,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
 }
-
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:24px;text-decoration:none;}
 .nav-links{display:flex;gap:30px;}
-.nav-links a{color:var(--muted);text-decoration:none;}
-.nav-links a:hover{color:white;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:15px;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#fff;}
+.chips li{transition:border-color .2s,color .2s;}
+.chips li:hover{border-color:var(--accent);color:#fff;}
 
-.resume{
-  background:var(--accent);
-  padding:15px 25px;
-  height: 55px;
-  border-radius:10px;
-  color:white;
-  text-decoration:none;
+/* RESUME DROPDOWN */
+.dropdown{position:relative;}
+.dropdown summary{
+  list-style:none;cursor:pointer;
+  background:var(--accent);color:#fff;
+  padding:10px 20px;border-radius:10px;font-weight:500;font-size:15px;
+  display:flex;align-items:center;gap:8px;
 }
+.dropdown summary::-webkit-details-marker{display:none;}
+.dropdown summary::after{content:"▾";font-size:12px;}
+.dropdown[open] summary::after{content:"▴";}
+.menu{
+  position:absolute;right:0;top:calc(100% + 10px);
+  min-width:230px;padding:8px;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
+}
+.menu a{
+  display:block;padding:12px 14px;border-radius:8px;text-decoration:none;font-size:14px;
+}
+.menu a small{display:block;color:var(--muted);font-size:12px;}
+.menu a:hover{background:#1a1c2b;}
 
 /* HERO */
-.hero{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  padding:120px 60px 40px;
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(52px,10vw,104px);line-height:1;letter-spacing:-2px;}
+.hero h1 span{
+  background:linear-gradient(90deg,#6f7cff,var(--pink));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
-
-.hero h1{
-  font-size:90px;
-  font-family:'Syne';
-}
-
-.hero span{
-  background:linear-gradient(90deg,#6f7cff,#ff7aa2);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.hero p{
-  color:var(--muted);
-  margin-top:20px;
-  max-width:500px;
-}
-
-.tags{
-  margin-top:20px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.tag{
-  border:1px solid #2a2b3c;
-  padding:6px 12px;
-  border-radius:8px;
-  font-size:13px;
-}
-
-.buttons{
-  margin-top:30px;
-  display:flex;
-  gap:15px;
-}
-
+.role{margin-top:18px;font-size:18px;color:var(--text);font-weight:500;}
+.hero p.lead{color:var(--muted);margin-top:12px;max-width:520px;font-size:17px;}
+.tags{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;}
+.tag{border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-size:13px;color:var(--muted);}
+.buttons{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
 .btn{
-  padding:12px 25px;
-  border-radius:10px;
-  text-decoration:none;
+  padding:13px 24px;border-radius:10px;text-decoration:none;font-weight:500;font-size:15px;
+  border:1px solid var(--line);transition:transform .2s,border-color .2s;
+}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent);}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+.hero-resumes{margin-top:18px;display:flex;gap:20px;flex-wrap:wrap;font-size:14px;}
+.hero-resumes a{color:var(--muted);text-decoration:underline;text-underline-offset:4px;}
+.hero-resumes a:hover{color:#fff;}
+
+/* 3D HERO */
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center;}
+.scene{perspective:1000px;justify-self:center;width:min(340px,80vw);}
+.photo-card{
+  position:relative;aspect-ratio:3/4;transform-style:preserve-3d;
+  transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transition:transform .15s ease-out;
+}
+.photo-card::before{
+  content:"";position:absolute;inset:-14px;border-radius:26px;
+  background:linear-gradient(135deg,#6f7cff,var(--pink));opacity:.55;filter:blur(26px);
+  transform:translateZ(-60px);
+}
+.photo-card img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;
+  border-radius:22px;border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 30px 60px rgba(0,0,0,.55);
+}
+.tilt{transform-style:preserve-3d;}
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;}
+  .scene{order:-1;width:min(240px,60vw);justify-self:start;}
+  
 }
 
-.primary{background:var(--accent);color:white;}
-.secondary{border:1px solid #2a2b3c;color:white;}
+/* DEPTH EXTRAS */
+.ring{position:absolute;inset:-6px;border-radius:26px;border:1px solid rgba(111,124,255,.6);transform:translate3d(20px,20px,-40px);pointer-events:none;}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.35;z-index:-1;pointer-events:none;animation:drift 18s ease-in-out infinite alternate;}
+.orb.o1{width:420px;height:420px;background:#4a57ff;top:-100px;right:-80px;}
+.orb.o2{width:360px;height:360px;background:#ff5f93;bottom:-120px;left:-100px;opacity:.18;animation-delay:-8s;}
+@keyframes drift{to{transform:translate(40px,60px);}}
+.status{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--muted);background:rgba(17,18,26,.6);}
+.status i{width:8px;height:8px;border-radius:50%;background:#3ddc97;box-shadow:0 0 0 4px rgba(61,220,151,.18);}
+.hero-text > *,.scene{animation:rise .8s cubic-bezier(.2,.7,.2,1) both;}
+.hero-text > *:nth-child(2){animation-delay:.08s;}.hero-text > *:nth-child(3){animation-delay:.16s;}
+.hero-text > *:nth-child(4){animation-delay:.24s;}.hero-text > *:nth-child(5){animation-delay:.32s;}
+.hero-text > *:nth-child(6){animation-delay:.4s;}.hero-text > *:nth-child(7){animation-delay:.48s;}
+.scene{animation-delay:.2s;}
+@keyframes rise{from{opacity:0;transform:translateY(28px);}}
+.project,.card{position:relative;}
+.project::after,.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(111,124,255,.18),transparent 70%);}
+.project:hover::after,.card:hover::after{opacity:1;}
+.nav-links a.active{color:#fff;}
+@media(prefers-reduced-motion:reduce){.orb,.hero-text > *,.scene{animation:none;}}
 
 /* SECTIONS */
-
-section{
-  
-  padding:60px 60px;
-}
-
-#about{
-  padding-top:40px;
-}
-
-h2{
-  font-family:'Syne';
-  font-size:40px;
-  margin-bottom:30px;
-}
+section{padding:80px 0;}
+h2{font-family:'Syne',sans-serif;font-size:clamp(30px,5vw,40px);margin-bottom:32px;}
+.about p{max-width:720px;color:var(--muted);line-height:1.85;font-size:17px;}
+.about p + p{margin-top:20px;}
+.stats{display:flex;gap:40px;margin-top:36px;flex-wrap:wrap;}
+.stats strong{display:block;font-family:'Syne',sans-serif;font-size:34px;}
+.stats span{color:var(--muted);font-size:14px;}
 
 /* SKILLS */
-.skills{
-  
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:var(--card);
-  padding:25px;
-  border-radius:15px;
-  border:1px solid #1f2130;
-}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.card{background:var(--card);padding:26px;border-radius:14px;border:1px solid var(--line);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out,border-color .3s;}
+.card:hover{border-color:var(--accent);}
+.card h3{font-size:16px;margin-bottom:14px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chips li{list-style:none;font-size:13px;color:var(--muted);border:1px solid var(--line);padding:4px 11px;border-radius:999px;}
 
 /* PROJECTS */
-
-.projects{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
-  max-width:1100px;
-  margin:0 auto;
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.project{
+  background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--line);
+  display:flex;flex-direction:column;transition:transform .15s ease-out,border-color .3s,box-shadow .3s;
 }
-
-@media(max-width:900px){
-  .projects{grid-template-columns:repeat(2,1fr);}
+.project{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));will-change:transform;}
+.project:hover{border-color:var(--accent);box-shadow:0 24px 50px rgba(0,0,0,.5);}
+.project img{width:100%;height:180px;object-fit:cover;background:#1a1c2b;display:block;}
+.project-content{padding:20px;display:flex;flex-direction:column;flex:1;}
+.project h3{font-size:18px;}
+.project p{color:var(--muted);font-size:14px;margin-top:4px;flex:1;}
+.github-link{
+  align-self:flex-start;margin-top:16px;padding:6px 14px;border-radius:8px;
+  font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--line);
+  transition:color .2s,border-color .2s;
 }
+.github-link:hover{color:#fff;border-color:var(--accent);}
 
-@media(max-width:600px){
+/* CONTACT */
+.contact-list{display:flex;flex-direction:column;gap:12px;}
+.contact-list a{color:var(--accent);text-decoration:none;font-size:18px;}
+.contact-list a:hover{text-decoration:underline;}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px;text-align:center;}
+
+/* RESPONSIVE */
+@media(max-width:900px){.projects{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:700px){
+  .wrap{padding:0 20px;}
+  .nav-links{display:none;}
+  nav .wrap{height:62px;}
+  .hero{padding:100px 0 40px;}
+  section{padding:56px 0;}
   .projects{grid-template-columns:1fr;}
 }
-
-.project{
-  background:var(--card);
-  border-radius:15px;
-  overflow:hidden;
-  border:1px solid #1f2130;
-  transition:0.3s;
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none !important;}
 }
-
-.project:hover{
-  transform:translateY(-5px);
-  border-color:#5b6fff;
-}
-
-.project img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-
-.project-content{padding:20px;}
-
-.project p{
-  color:var(--muted);
-  font-size:14px;
-}
-
-.github-link{
-  background:var(--card);
-  display:inline-block;
-  padding:5px;
-  border-radius:15px;
-  margin-top:10px;
-  font-size:13px;
-  color:#8a8aa0;
-  text-decoration:none;
-  border:1px solid #41424f;
-}
-
-.github-link:hover{color:#5b6fff;}
-
-/* MOBILE */
-@media(max-width:768px){
-
-  nav{
-    flex-direction:column;
-    align-items:flex-start;
-    padding:15px 20px;
-    gap:10px;
-  }
-
-  .nav-links{
-    display:none; /* hide links for clean look */
-  }
-
-  .resume{
-    align-self:flex-start; /* moves below DR */
-    padding:8px 16px;
-    font-size:12px;
-    height:auto;
-  }
-
-  .hero{
-    padding:100px 20px 30px;
-  }
-
-  .hero h1{
-    font-size:48px;
-  }
-
-  section{
-    padding:50px 20px;
-  }
-}
-
 </style>
 </head>
 
 <body>
 
+<div class="orb o1"></div><div class="orb o2"></div>
+
 <nav>
-  <h2>DR</h2>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Deepak Raj, home">DR</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <details class="dropdown">
+      <summary>Resume</summary>
+      <div class="menu">
+        <a href="resume/Deepak_Resume_Data_Analyst.pdf" target="_blank" rel="noopener">
+          Data Analyst resume <small>SQL, Power BI, Excel, Python</small>
+        </a>
+        <a href="resume/Deepak_Resume_AI_ML.pdf" target="_blank" rel="noopener">
+          AI &amp; ML resume <small>Machine learning, LLM, RAG, LangChain</small>
+        </a>
+      </div>
+    </details>
   </div>
-  <a href="Deepak_Resume.pdf" class="resume">Resume</a>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+    <div class="status"><i></i>Open to Data Analyst &amp; AI/ML roles</div>
     <h1>Deepak <br><span>Raj</span></h1>
-    <p>AI & Data Science graduate — Turning a raw data into meaningful  Insights.</p>
+    <p class="role">Data Analyst &amp; AI/ML Engineer</p>
+    <p class="lead">AI &amp; Data Science graduate turning raw data into meaningful insights.</p>
 
     <div class="tags">
-      <div class="tag">SQL</div>
-      <div class="tag">Python</div>
-      <div class="tag">ML</div>
-      <div class="tag">Data Analysis</div>
-      <div class="tag">Visualization</div>
-      
-      
+      <span class="tag">SQL</span>
+      <span class="tag">Python</span>
+      <span class="tag">Power BI</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">LLM &amp; RAG</span>
+      <span class="tag">Data Analysis</span>
     </div>
 
     <div class="buttons">
-      <a href="#projects" class="btn primary">View Work</a>
-      <a href="#contact" class="btn secondary">Contact</a>
+      <a href="#projects" class="btn primary">View work</a>
+      <a href="#contact" class="btn">Contact me</a>
+    </div>
+
+    <div class="hero-resumes">
+      <a href="resume/Deepak_Resume_Data_Analyst.pdf" target="_blank" rel="noopener">Download Data Analyst resume</a>
+      <a href="resume/Deepak_Resume_AI_ML.pdf" target="_blank" rel="noopener">Download AI &amp; ML resume</a>
+    </div>
+    </div>
+
+    <div class="scene">
+      <div class="photo-card" data-tilt="14">
+        <div class="ring"></div>
+        <img src="image/deepak.jpg" alt="Portrait of Deepak Raj">
+      </div>
     </div>
   </div>
-</div>
+</header>
 
+<main>
 <!-- ABOUT -->
-<section id="about">
-  <h2>About</h2>
-  <p style="max-width:700px;color:var(--muted);line-height:1.8;">
-    I’m an AI & Data Science graduate focused on solving real-world problems using data.
-    I specialize in SQL, Python, and Power BI to analyze datasets, uncover patterns,
-    and deliver actionable insights that support business decisions.
-    <br><br>
-    I’ve worked on projects like sales analysis, customer behavior analysis,
-    churn prediction, Poultry Disease Detection System and machine learning solutions — turning raw data into meaningful outcomes.
-  </p>
+<section id="about" class="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p>
+      I'm an AI &amp; Data Science graduate who solves real-world problems with data.
+      I use SQL, Python and Power BI to analyze datasets, find patterns, and deliver
+      insights that support business decisions.
+    </p>
+    <p>
+      My projects include sales analysis, customer behavior analysis, churn prediction,
+      a poultry disease detection system and machine learning solutions. I also know the basics of Large Language Models (LLMs), Retrieval-Augmented Generation (RAG) and LangChain, and I'm building on them.
+    </p>
+    <div class="stats">
+      <div><strong>5</strong><span>Projects on GitHub</span></div>
+      <div><strong>3</strong><span>Core tools: SQL, Python, Power BI</span></div>
+      <div><strong>GenAI</strong><span>LLM, RAG, LangChain basics</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2>Skills</h2>
-  <div class="skills">
-    <div class="card">Python</div>
-     <div class="card">SQL</div>
-    <div class="card">Machine Learning</div>
-     <div class="card">Excel</div>
-    <div class="card">Power BI</div>
-    <div class="card">Libraries</div>
-    <div class="card">Data Handling</div>
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="card">
+        <h3>Programming</h3>
+        <ul class="chips"><li>Python</li><li>SQL</li></ul>
+      </div>
+      <div class="card">
+        <h3>Analysis &amp; BI</h3>
+        <ul class="chips"><li>Power BI</li><li>Excel</li><li>Data Handling</li><li>Visualization</li></ul>
+      </div>
+      <div class="card">
+        <h3>Machine Learning</h3>
+        <ul class="chips"><li>Classification</li><li>Prediction models</li><li>Recommendation systems</li></ul>
+      </div>
+      <div class="card">
+        <h3>Generative AI (basics)</h3>
+        <ul class="chips"><li>LLMs</li><li>RAG</li><li>LangChain</li><li>Prompt engineering</li></ul>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-<h2>Projects</h2>
+  <div class="wrap">
+    <h2>Projects</h2>
+    <div class="projects">
 
-<div class="projects">
+      <article class="project">
+        <img src="image/project 1.jpg" alt="ShipX sales analysis dashboard" loading="lazy">
+        <div class="project-content">
+          <h3>ShipX Sales</h3>
+          <p>Retail sales and outlet performance trend analysis.</p>
+          <a class="github-link" href="https://github.com/DeepakRaj102003/ShipX_Retail-Sales-Outlet-Performance-Analysis.git" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
 
-<div class="project">
-<img src="image/project 1.jpg">
-<div class="project-content">
-<h3>ShipX Sales</h3>
-<p>Sales trend analysis</p>
-<a href="https://github.com/DeepakRaj102003/ShipX_Retail-Sales-Outlet-Performance-Analysis.git" target="_blank" class="github-link">GitHub ↗</a>
-</div>
-</div>
+      <article class="project">
+        <img src="image/project 2.jpg" alt="Poultry disease detection system" loading="lazy">
+        <div class="project-content">
+          <h3>Poultry Detection</h3>
+          <p>Real-time disease and heat detection system for poultry farms.</p>
+          <a class="github-link" href="https://github.com/DeepakRaj102003/Real-Time-Disease-prediction-in-poultry-farms.git" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
 
-<div class="project">
-<img src="image/project 2.jpg">
-<div class="project-content">
-<h3>Poultry Detection</h3>
-<p>Disease and heat Detection System</p>
-<a href="https://github.com/DeepakRaj102003/Real-Time-Disease-prediction-in-poultry-farms.git" target="_blank" class="github-link">GitHub ↗</a>
-</div>
-</div>
+      <article class="project">
+        <img src="image/project 3.jpg" alt="Skincare recommendation system" loading="lazy">
+        <div class="project-content">
+          <h3>Skincare</h3>
+          <p>Product recommendation system based on skin needs.</p>
+          <a class="github-link" href="https://github.com/DeepakRaj102003/Skincare_recommendation.git" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
 
-<div class="project">
-<img src="image/project 3.jpg">
-<div class="project-content">
-<h3>Skincare</h3>
-<p>Recommendation system</p>
-<a href=https://github.com/DeepakRaj102003/Skincare_recommendation.git target="_blank" class="github-link">GitHub ↗</a>
-</div>
-</div>
+      <article class="project">
+        <img src="image/project 4.jpg" alt="Customer churn prediction model" loading="lazy">
+        <div class="project-content">
+          <h3>Churn Prediction</h3>
+          <p>Machine learning model that predicts which customers will leave.</p>
+          <a class="github-link" href="https://github.com/DeepakRaj102003/Customer_Churn_Prediction.git" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
 
+      <article class="project">
+        <img src="image/project 5.jpg" alt="Customer behavior analysis dashboard" loading="lazy">
+        <div class="project-content">
+          <h3>Behavior Analysis</h3>
+          <p>Customer behavior analysis with Python, SQL and Power BI.</p>
+          <a class="github-link" href="https://github.com/DeepakRaj102003/Customer_Behavior_Analysis---SQL-Python-PowerBi.git" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
 
-<div class="project">
-<img src="image/project 4.jpg">
-<div class="project-content">
-<h3>Churn Prediction</h3>
-<p>ML model</p>
-<a href="https://github.com/DeepakRaj102003/Customer_Churn_Prediction.git" target="_blank" class="github-link">GitHub ↗</a>
-</div>
-</div>
-
-<div class="project">
-<img src="image/project 5.jpg">
-<div class="project-content">
-<h3>Behavior Analysis</h3>
-<p>Python + SQL + Power BI</p>
-<a href="https://github.com/DeepakRaj102003/Customer_Behavior_Analysis---SQL-Python-PowerBi.git" target="_blank" class="github-link">GitHub ↗</a>
-</div>
-</div>
-
-</div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2>Contact</h2>
-<p style="color:var(--muted); font-size:16px;">
-  <a href="mailto:deepakk10.2003@gmail.com" style="color:#5b6fff; text-decoration:none;">
-    deepakk10.2003@gmail.com
-  </a>
-</p>
-<br>
-<p>
-  <a href="tel:+91 6369830428" style="color:#5b6fff;" > +91 6369830428</a>
-</p>
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact-list">
+      <a href="mailto:deepakk10.2003@gmail.com">deepakk10.2003@gmail.com</a>
+      <a href="tel:+916369830428">+91 6369830428</a>
+    </div>
+  </div>
 </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Deepak Raj</div>
+</footer>
+
+<script>
+// Close the resume menu when clicking outside or pressing Escape
+const dd = document.querySelector('.dropdown');
+document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.removeAttribute('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') dd.removeAttribute('open'); });
+
+// Highlight the nav link of the section in view
+const links = [...document.querySelectorAll('.nav-links a')];
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+}), {rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(sec => io.observe(sec));
+
+// Subtle 3D tilt that follows the pointer (disabled for touch and reduced motion)
+if (matchMedia('(hover:hover)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  document.querySelectorAll('.photo-card, .project, .card').forEach(el => {
+    const max = +el.dataset.tilt || 6;
+    const host = el.classList.contains('photo-card') ? el.parentElement : el;
+    host.addEventListener('pointermove', e => {
+      const r = host.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      el.style.setProperty('--ry', (x * max * 2) + 'deg');
+      el.style.setProperty('--rx', (-y * max * 2) + 'deg');
+    });
+    host.addEventListener('pointerleave', () => {
+      el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg');
+    });
+  });
+}
+
+// Cursor spotlight on cards
+document.querySelectorAll('.project, .card').forEach(el => {
+  el.addEventListener('pointermove', e => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+// Highlight the nav link of the section in view
+const links = document.querySelectorAll('.nav-links a');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+document.querySelectorAll('section[id]').forEach(sec => io.observe(sec));
+</script>
 
 </body>
 </html>
